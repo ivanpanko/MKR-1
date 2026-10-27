@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог Фільмів</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>КіноКаталог</h1>
+
+    <div class="controls">
+        <button id="btn-add">Додати фільм</button>
+        <input type="text" id="search-input" placeholder="Пошук за назвою...">
+        
+        <select id="filter-genre">
+            <option value="all">Усі жанри</option>
+            <option value="Фантастика">Фантастика</option>
+            <option value="Екшн">Екшн</option>
+            <option value="Драма">Драма</option>
+            <option value="Комедія">Комедія</option>
+        </select>
+
+        <select id="filter-status">
+            <option value="all">Усі статуси</option>
+            <option value="planned">Заплановано</option>
+            <option value="watching">Переглядаю</option>
+            <option value="watched">Переглянуто</option>
+        </select>
+    </div>
+
+    <div id="movie-grid" class="grid"></div>
+
+    <div id="form-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Додати фільм</h2>
+            <form id="movie-form">
+                <input type="hidden" id="movie-id">
+                
+                <label>Назва:</label>
+                <input type="text" id="form-title" required>
+
+                <label>Жанр:</label>
+                <select id="form-genre" required>
+                    <option value="Фантастика">Фантастика</option>
+                    <option value="Екшн">Екшн</option>
+                    <option value="Драма">Драма</option>
+                    <option value="Комедія">Комедія</option>
+                </select>
+
+                <label>Рік:</label>
+                <input type="number" id="form-year" required>
+
+                <label>Тривалість (хв):</label>
+                <input type="number" id="form-duration" required>
+
+                <label>Статус:</label>
+                <select id="form-status" required>
+                    <option value="planned">Заплановано</option>
+                    <option value="watching">Переглядаю</option>
+                    <option value="watched">Переглянуто</option>
+                </select>
+
+                <label>Оцінка (1-10):</label>
+                <input type="number" id="form-rating" min="1" max="10" required>
+
+                <div class="form-buttons">
+                    <button type="submit">Зберегти</button>
+                    <button type="button" id="btn-close-form">Скасувати</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+  
+    <div id="details-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="detail-title"></h2>
+            <p><strong>Жанр:</strong> <span id="detail-genre"></span></p>
+            <p><strong>Рік:</strong> <span id="detail-year"></span></p>
+            <p><strong>Тривалість:</strong> <span id="detail-duration"></span> хв</p>
+            <p><strong>Статус:</strong> <span id="detail-status"></span></p>
+            <p><strong>Оцінка:</strong> <span id="detail-rating"></span>/10</p>
+            <button id="btn-close-details">Закрити</button>
+        </div>
+    </div>
+
+
+    <div id="delete-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Видалити цей фільм?</h3>
+            <p id="delete-movie-title"></p>
+            <div class="form-buttons">
+                <button id="btn-confirm-delete" class="btn-danger">Так, видалити</button>
+                <button id="btn-cancel-delete">Скасувати</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
